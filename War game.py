@@ -14,3 +14,8 @@ class Card():
 
     def __str__(self):
         return self.rank + " of " + self.suit
+
+# three_of_clubs = Card('Clubs', 'Three')
+# two_harts = Card('Harts', "Two")
+# print(three_of_clubs.value > two_harts.value)
+
