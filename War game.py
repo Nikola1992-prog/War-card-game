@@ -50,3 +50,7 @@ class Player():
 
         self.name = name
         self.all_cards = []
+
+    def remove_one(self):
+        return self.all_cards.pop(0)
+
