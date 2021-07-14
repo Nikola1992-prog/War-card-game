@@ -43,3 +43,10 @@ class Deck():
 # new_dack = Deck()
 # for card in new_dack.all_cards:
 #     print(card)
+
+class Player():
+
+    def __init__(self, name):
+
+        self.name = name
+        self.all_cards = []
