@@ -81,5 +81,5 @@ class Player():
 #     print(card)
 #
 # print(new_player)
-
-
+# print(new_player.remove_one())
+# print(new_player)
