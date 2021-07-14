@@ -36,6 +36,10 @@ class Deck():
 
         random.shuffle(self.all_cards)
 
+    def deal_one(self):
+
+        return self.all_cards.pop()
+
 # new_dack = Deck()
 # for card in new_dack.all_cards:
 #     print(card)
