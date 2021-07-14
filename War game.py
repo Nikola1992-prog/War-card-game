@@ -54,3 +54,13 @@ class Player():
     def remove_one(self):
         return self.all_cards.pop(0)
 
+    def add_cards(self, new_cards):
+
+        if type(new_cards) == type([]):
+            # List od multiple Card obj
+            self.all_cards.extend(new_cards)
+        else:
+            # For a single card obj
+            self.all_cards.append(new_cards)
+
+
