@@ -1,3 +1,5 @@
+import random
+
 # Card suits and Ranks
 suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
 ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
@@ -20,3 +22,7 @@ class Card():
 # two_harts = Card('Harts', "Two")
 # print(three_of_clubs.value > two_harts.value)
 
+class Deck():
+
+    def __init__(self):
+        self.all_cards = []
