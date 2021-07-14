@@ -75,9 +75,11 @@ class Player():
 #
 # new_player.add_cards(two_harts)
 # new_player.add_cards(three_of_clubs)
+# new_player.add_cards([three_of_clubs,three_of_clubs,three_of_clubs])
 #
 # for card in new_player.all_cards:
 #     print(card)
-
+#
+# print(new_player)
 
 
