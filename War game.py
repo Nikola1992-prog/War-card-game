@@ -5,10 +5,11 @@ suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
 ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
 
 # Card values
-values = {'Two':2, 'Three':3, 'Four':4, 'Five':5, 'Six':6, 'Seven':7, 'Eight':8,
-            'Nine':9, 'Ten':10, 'Jack':11, 'Queen':12, 'King':13, 'Ace':14}
+values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10,
+          'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14}
 
-class Card():
+
+class Card:
 
     def __init__(self, suit, rank):
         self.suit = suit
@@ -18,11 +19,12 @@ class Card():
     def __str__(self):
         return self.rank + " of " + self.suit
 
+
 # three_of_clubs = Card('Clubs', 'Three')
 # two_harts = Card('Harts', "Two")
 # print(three_of_clubs.value > two_harts.value)
 
-class Deck():
+class Deck:
 
     def __init__(self):
         self.all_cards = []
@@ -40,11 +42,12 @@ class Deck():
 
         return self.all_cards.pop()
 
+
 # new_dack = Deck()
 # for card in new_dack.all_cards:
 #     print(card)
 
-class Player():
+class Player:
 
     def __init__(self, name):
 
@@ -65,7 +68,6 @@ class Player():
 
     def __str__(self):
         return f'Player {self.name} has {len(self.all_cards)} cards'
-
 
 # new_player = Player('Nikola')
 # print(new_player)
