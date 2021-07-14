@@ -67,4 +67,17 @@ class Player():
         return f'Player {self.name} has {len(self.all_cards)} cards'
 
 
+# new_player = Player('Nikola')
+# print(new_player)
+#
+# two_harts = Card('Harts', "Two")
+# three_of_clubs = Card('Clubs', 'Three')
+#
+# new_player.add_cards(two_harts)
+# new_player.add_cards(three_of_clubs)
+#
+# for card in new_player.all_cards:
+#     print(card)
+
+
 
