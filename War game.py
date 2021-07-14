@@ -63,4 +63,8 @@ class Player():
             # For a single card obj
             self.all_cards.append(new_cards)
 
+    def __str__(self):
+        return f'Player {self.name} has {len(self.all_cards)} cards'
+
+
 
