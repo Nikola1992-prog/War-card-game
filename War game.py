@@ -31,3 +31,7 @@ class Deck():
             for rank in ranks:
                 created_card = Card(suit, rank)
                 self.all_cards.append(created_card)
+
+# new_dack = Deck()
+# for card in new_dack.all_cards:
+#     print(card)
