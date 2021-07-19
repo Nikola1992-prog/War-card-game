@@ -1,11 +1,11 @@
 import random
 
 # Card suits and Ranks
-suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
-ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
+SUITS = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
+RANKS = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
 
 # Card values
-values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10,
+VALUES = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eight': 8, 'Nine': 9, 'Ten': 10,
           'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14}
 
 
@@ -14,43 +14,36 @@ class Card:
     def __init__(self, suit, rank):
         self.suit = suit
         self.rank = rank
-        self.value = values[rank]
+        self.value = VALUES[rank]
 
     def __str__(self):
-        return self.rank + " of " + self.suit
+        return  f"{self.rank} of {self.suit}"
 
+    def __eq__(self, other):
+        if isinstance(other, int):
+            return other == VALUES[self.rank]
+        return other.rank == self.rank
 
-# three_of_clubs = Card('Clubs', 'Three')
-# two_harts = Card('Harts', "Two")
-# print(three_of_clubs.value > two_harts.value)
 
 class Deck:
+    all_cards = []
 
     def __init__(self):
-        self.all_cards = []
-
-        for suit in suits:
-            for rank in ranks:
+        for suit in SUITS:
+            for rank in RANKS:
                 created_card = Card(suit, rank)
                 self.all_cards.append(created_card)
 
     def shuffle(self):
-
         random.shuffle(self.all_cards)
 
     def deal_one(self):
-
         return self.all_cards.pop()
 
-
-# new_dack = Deck()
-# for card in new_dack.all_cards:
-#     print(card)
 
 class Player:
 
     def __init__(self, name):
-
         self.name = name
         self.all_cards = []
 
@@ -58,8 +51,7 @@ class Player:
         return self.all_cards.pop(0)
 
     def add_cards(self, new_cards):
-
-        if type(new_cards) == type([]):
+        if isinstance(new_cards, list):
             # List od multiple Card obj
             self.all_cards.extend(new_cards)
         else:
@@ -68,23 +60,6 @@ class Player:
 
     def __str__(self):
         return f'Player {self.name} has {len(self.all_cards)} cards'
-
-# new_player = Player('Nikola')
-# print(new_player)
-#
-# two_harts = Card('Harts', "Two")
-# three_of_clubs = Card('Clubs', 'Three')
-#
-# new_player.add_cards(two_harts)
-# new_player.add_cards(three_of_clubs)
-# new_player.add_cards([three_of_clubs,three_of_clubs,three_of_clubs])
-#
-# for card in new_player.all_cards:
-#     print(card)
-#
-# print(new_player)
-# print(new_player.remove_one())
-# print(new_player)
 
 # GAME SETUP
 
@@ -103,7 +78,7 @@ round_number = 0
 
 while game_on:
     round_number += 1
-    print(f'Currently round {round_number}')
+    print (f'Currently round {round_number}')
 
     if len(player_one.all_cards) == 0:
         print(player_one)
@@ -129,19 +104,15 @@ while game_on:
     while at_war:
 
         if player_one_cards[-1].value > player_two_cards[-1].value:
-
             player_one.add_cards(player_one_cards)
             player_one.add_cards(player_two_cards)
 
             at_war = False
-
         elif player_one_cards[-1].value < player_two_cards[-1].value:
-
             player_two.add_cards(player_two_cards)
             player_two.add_cards(player_one_cards)
 
             at_war = False
-
         else:
             print("WAR!")
 
@@ -150,13 +121,11 @@ while game_on:
                 print("Player Two wins!")
                 game_on = False
                 break
-
             elif len(player_two.all_cards) < 5:
                 print("Player Two not able to declare a war!")
                 print("Player One wins!")
                 game_on = False
                 break
-
             else:
                 for num in range(5):
                     player_one_cards.append(player_one.remove_one())
